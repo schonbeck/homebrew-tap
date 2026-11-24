@@ -1,8 +1,8 @@
 class Klip < Formula
   desc "Simple Wayland screenshot tool: select, annotate, copy or save"
   homepage "https://github.com/schonbeck/klip"
-  url "https://github.com/schonbeck/klip/releases/download/v0.1.2/klip-0.1.2.tar.gz"
-  sha256 "c232c168ed9ddde2206c9ace5dbfb8f0be6cb9e3cdc0ea57a423c8328cf46db4"
+  url "https://github.com/schonbeck/klip/releases/download/v0.1.3/klip-0.1.3.tar.gz"
+  sha256 "764e9b7ba414bac3a974c55acca368f23651da524a28803da7ec3c2d54262753"
   license "MIT"
 
   livecheck do
