@@ -5,6 +5,11 @@ class Klip < Formula
   sha256 "bb69ade4d50cb523f4fd61aaddeadc3ee317b7fe75e93d1ccb4bcfdef45de570"
   license "MIT"
 
+  livecheck do
+    url :stable
+    strategy :github_latest
+  end
+
   depends_on "pkgconf" => :build
   depends_on "rust" => :build
   depends_on "cairo"
@@ -33,5 +38,7 @@ class Klip < Formula
 
   test do
     assert_match version.to_s, shell_output("#{bin}/klip --version")
+    assert_match "Usage: klip", shell_output("#{bin}/klip --help")
+    assert_path_exists share/"applications/io.github.schonbeck.klip.desktop"
   end
 end
