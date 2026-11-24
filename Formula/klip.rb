@@ -10,6 +10,12 @@ class Klip < Formula
     strategy :github_latest
   end
 
+  bottle do
+    root_url "https://github.com/schonbeck/homebrew-tap/releases/download/klip-0.1.2"
+    rebuild 1
+    sha256 cellar: :any, x86_64_linux: "424b18df85adc92587c969ab5532ae324268eb86e085306ceb89e77ae05376de"
+  end
+
   depends_on "pkgconf" => :build
   depends_on "rust" => :build
   depends_on "cairo"
