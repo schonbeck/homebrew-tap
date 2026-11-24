@@ -68,6 +68,11 @@ jobs:
           HEAD_SHA: ${{ inputs.head_sha || github.event.pull_request.head.sha }}
           PULL_REQUEST: ${{ inputs.pull_request || github.event.pull_request.number }}
         run: |
+          # pr-pull starts from $GITHUB_SHA. On the label trigger that's the
+          # PR's merge commit, which already contains the formula change, so
+          # pr-pull would see nothing to bottle; start from main instead.
+          GITHUB_SHA="$(git -C "$(brew --repository "$GITHUB_REPOSITORY")" rev-parse HEAD)"
+          export GITHUB_SHA
           if [[ -n "$HEAD_SHA" ]]
           then
             brew pr-pull --debug --retain-bottle-dir --tap="$GITHUB_REPOSITORY" --head-sha="$HEAD_SHA" \
